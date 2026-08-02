@@ -110,7 +110,7 @@ sudo systemctl restart haproxy
 
 ## Demo Video
 
-<!-- Add link after recording -->
+[Watch the demo video](https://drive.google.com/file/d/1X27NxauCl_piVvbkPHDCCPGMtCX507FN/view?usp=drive_link)
 
 ## Live Deployment
 
