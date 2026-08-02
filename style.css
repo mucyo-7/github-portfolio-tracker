@@ -1,0 +1,360 @@
+:root {
+  --bg: #0d1117;
+  --surface: #161b22;
+  --surface-alt: #1c2128;
+  --border: #30363d;
+  --text: #e6edf3;
+  --text-dim: #8b949e;
+  --accent: #58a6ff;
+  --good: #3fb950;
+  --warn: #d29922;
+  --bad: #f85149;
+  --radius: 8px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+}
+
+.app-header {
+  padding: 2rem 1.5rem 1rem;
+  text-align: center;
+}
+
+.app-header h1 {
+  margin: 0 0 0.5rem;
+  font-size: 1.6rem;
+}
+
+.tagline {
+  color: var(--text-dim);
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 1.25rem 3rem;
+}
+
+.intro-panel {
+  background: linear-gradient(135deg, rgba(88,166,255,0.12), rgba(63,185,80,0.08));
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.intro-panel h2 {
+  margin: 0 0 0.5rem;
+  font-size: 1.05rem;
+}
+
+.intro-panel p {
+  margin: 0;
+  color: var(--text-dim);
+  font-size: 0.92rem;
+}
+
+.example-chips {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-top: 0.9rem;
+}
+
+.example-label {
+  font-size: 0.85rem;
+  color: var(--text-dim);
+}
+
+.chip {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--accent);
+  padding: 0.35rem 0.8rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.1s ease;
+}
+
+.chip:hover {
+  background: var(--surface-alt);
+  transform: translateY(-1px);
+}
+
+.search-section {
+  margin-bottom: 1.5rem;
+}
+
+#search-form {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+#username-input {
+  flex: 1;
+  min-width: 200px;
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  font-size: 1rem;
+}
+
+#username-input:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+
+#search-btn {
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius);
+  border: none;
+  background: var(--accent);
+  color: #0d1117;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+#search-btn:hover {
+  opacity: 0.9;
+}
+
+#search-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.status-message {
+  margin-top: 0.75rem;
+  font-size: 0.9rem;
+  min-height: 1.2rem;
+}
+
+.status-message.error {
+  color: var(--bad);
+}
+
+.status-message.loading {
+  color: var(--text-dim);
+}
+
+.hidden {
+  display: none !important;
+}
+
+.profile-card {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.profile-card img {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+}
+
+.profile-card h2 {
+  margin: 0 0 0.25rem;
+  font-size: 1.25rem;
+}
+
+.profile-card p {
+  margin: 0;
+  color: var(--text-dim);
+  font-size: 0.9rem;
+}
+
+.score-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.score-card .score-number {
+  font-size: 2.5rem;
+  font-weight: 700;
+  transition: color 0.4s ease;
+}
+
+@keyframes pop-in {
+  0% { transform: scale(0.9); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.score-card, .repo-card {
+  animation: pop-in 0.25s ease;
+}
+
+.repo-card.standout {
+  border-color: var(--good);
+  box-shadow: 0 0 0 1px rgba(63,185,80,0.25);
+}
+
+.standout-badge {
+  font-size: 0.75rem;
+  color: var(--good);
+  font-weight: 600;
+}
+
+.score-card .score-label {
+  color: var(--text-dim);
+  font-size: 0.9rem;
+  margin-bottom: 0.75rem;
+}
+
+.score-card ul {
+  margin: 0.75rem 0 0;
+  padding-left: 1.1rem;
+  font-size: 0.9rem;
+}
+
+.score-card li {
+  margin-bottom: 0.35rem;
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+  padding: 1rem;
+  background: var(--surface-alt);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+}
+
+.control-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  font-size: 0.8rem;
+  color: var(--text-dim);
+}
+
+.control-group select,
+.control-group input {
+  padding: 0.5rem;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  font-size: 0.9rem;
+}
+
+.repo-list {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.repo-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1rem 1.25rem;
+}
+
+.repo-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.repo-card h3 {
+  margin: 0 0 0.3rem;
+  font-size: 1.05rem;
+}
+
+.repo-card h3 a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.repo-card h3 a:hover {
+  text-decoration: underline;
+}
+
+.repo-desc {
+  color: var(--text-dim);
+  font-size: 0.9rem;
+  margin: 0.3rem 0 0.6rem;
+}
+
+.repo-meta {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  font-size: 0.8rem;
+  color: var(--text-dim);
+}
+
+.repo-score-badge {
+  font-weight: 700;
+  padding: 0.3rem 0.7rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  white-space: nowrap;
+}
+
+.badge-good { background: rgba(63,185,80,0.15); color: var(--good); }
+.badge-warn { background: rgba(210,153,34,0.15); color: var(--warn); }
+.badge-bad  { background: rgba(248,81,73,0.15); color: var(--bad); }
+
+.repo-flags {
+  margin: 0.6rem 0 0;
+  padding-left: 1.1rem;
+  font-size: 0.82rem;
+  color: var(--text-dim);
+}
+
+.repo-flags li {
+  margin-bottom: 0.2rem;
+}
+
+.empty-state {
+  text-align: center;
+  color: var(--text-dim);
+  padding: 2rem 1rem;
+}
+
+.app-footer {
+  text-align: center;
+  color: var(--text-dim);
+  font-size: 0.8rem;
+  padding: 1.5rem;
+}
+
+.app-footer a {
+  color: var(--accent);
+}
+
+@media (max-width: 480px) {
+  #search-form {
+    flex-direction: column;
+  }
+}

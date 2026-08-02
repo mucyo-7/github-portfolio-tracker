@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GitHub Portfolio Readiness Tracker</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="app-header">
+    <h1>GitHub Portfolio Readiness Tracker</h1>
+    <p class="tagline">Check how job-ready your GitHub profile looks — and get specific fixes.</p>
+  </header>
+
+  <main>
+    <section id="intro-panel" class="intro-panel">
+      <h2>What this does</h2>
+      <p>
+        Recruiters skim GitHub profiles in seconds. This tool checks a
+        public profile the way a reviewer would — flagging missing
+        READMEs, undocumented repos, stale projects, and other gaps —
+        then scores every repo out of 100 with specific fixes.
+        Enter any public GitHub username below to see its readiness score.
+      </p>
+      <div class="example-chips">
+        <span class="example-label">Try:</span>
+        <button type="button" class="chip" data-username="mucyo-7">mucyo-7</button>
+        <button type="button" class="chip" data-username="torvalds">torvalds</button>
+        <button type="button" class="chip" data-username="octocat">octocat</button>
+      </div>
+    </section>
+
+    <section class="search-section">
+      <form id="search-form" autocomplete="off">
+        <input
+          type="text"
+          id="username-input"
+          placeholder="Enter a GitHub username (e.g. mucyo-7)"
+          aria-label="GitHub username"
+          required
+        />
+        <button type="submit" id="search-btn">Check Profile</button>
+      </form>
+      <div id="status-message" class="status-message" role="status"></div>
+    </section>
+
+    <section id="results" class="results hidden">
+      <div id="profile-card" class="profile-card"></div>
+      <div id="score-card" class="score-card"></div>
+
+      <div class="controls">
+        <div class="control-group">
+          <label for="sort-select">Sort by</label>
+          <select id="sort-select">
+            <option value="score-asc">Score (lowest first)</option>
+            <option value="score-desc">Score (highest first)</option>
+            <option value="stars">Stars</option>
+            <option value="updated">Recently updated</option>
+            <option value="name">Name (A–Z)</option>
+          </select>
+        </div>
+
+        <div class="control-group">
+          <label for="language-filter">Language</label>
+          <select id="language-filter">
+            <option value="all">All languages</option>
+          </select>
+        </div>
+
+        <div class="control-group">
+          <label for="readme-filter">README status</label>
+          <select id="readme-filter">
+            <option value="all">All repos</option>
+            <option value="missing">Missing README only</option>
+            <option value="present">Has README only</option>
+          </select>
+        </div>
+
+        <div class="control-group">
+          <label for="repo-search">Search repos</label>
+          <input type="text" id="repo-search" placeholder="Filter by name..." />
+        </div>
+      </div>
+
+      <div id="repo-list" class="repo-list"></div>
+    </section>
+  </main>
+
+  <footer class="app-footer">
+    <p>
+      Data provided by the <a href="https://docs.github.com/en/rest" target="_blank" rel="noopener">GitHub REST API</a>.
+      This tool is not affiliated with or endorsed by GitHub.
+    </p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

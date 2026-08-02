@@ -1,0 +1,13 @@
+# Environment / secrets
+.env
+*.pem
+*.key
+
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+.vscode/
+*.log
+
+# Dependencies (if you add any tooling later)
+node_modules/
