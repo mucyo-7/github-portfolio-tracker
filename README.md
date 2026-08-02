@@ -114,4 +114,4 @@ sudo systemctl restart haproxy
 
 ## Live Deployment
 
-http://3.82.196.160
+https://www.mucyo7devopsproject.online
